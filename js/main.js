@@ -55,7 +55,7 @@ const SLIDES = [
     lead: 'MEA\'s Authorized',
     emphasis: 'AFL Service & Calibration Center.',
     sub: 'Expert Repair, Calibration, Maintenance And Certification For AFL Fiber-Optic Equipment Across The Middle East & Africa.',
-    trust: '3,000+ Devices Serviced · OEM-Approved Precision · MEA Coverage',
+    trust: '10,000+ Devices Serviced · OEM-Approved Precision · MEA Coverage',
     img: 'assets/otdr-repair.jpg',
     imgAlt: 'AFL OTDR repair and calibration center',
     imgLabel: 'AFL Authorized Service Centre · MEA',
