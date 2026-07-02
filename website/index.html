@@ -1,0 +1,1643 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <title>Lantern Network — MEA Digital Infrastructure Partner</title>
+    <meta
+      name="description"
+      content="Authorized technology partner for AFL, Fujikura, Yokogawa, FICER, Genie Networks and Nivtrix across the Middle East and Africa. AFL Authorized Service Centre for MEA."
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://unpkg.com/lucide@0.383.0/dist/umd/lucide.min.js"></script>
+  </head>
+  <body
+    data-page="index"
+    style="display: flex; flex-direction: column; min-height: 100vh"
+  >
+    <header class="site-header">
+      <div class="container-x">
+        <div class="nav-inner">
+          <a href="index.html" class="nav-logo">
+            <img
+              src="assets/logo-light.png"
+              alt="Lantern Network"
+              width="459"
+              height="108"
+            />
+          </a>
+          <nav class="nav-links" aria-label="Main">
+            <a href="index.html" class="nav-a" data-page="index">Home</a>
+            <a href="about.html" class="nav-a" data-page="about">Who We Are</a>
+            <a href="services.html" class="nav-a" data-page="services"
+              >Products</a
+            >
+            <a
+              href="service-center.html"
+              class="nav-a"
+              data-page="service-center"
+              >AFL Service Centre</a
+            >
+            <a href="training.html" class="nav-a" data-page="training"
+              >Fiber Optic Training</a
+            >
+            <a href="partners.html" class="nav-a" data-page="partners"
+              >Partners</a
+            >
+            <a href="contact.html" class="nav-a" data-page="contact">Contact</a>
+          </nav>
+          <button class="mob-tog" id="mob-tog" aria-label="Toggle menu">
+            <i data-lucide="menu" id="mob-icon"></i>
+          </button>
+        </div>
+      </div>
+      <div class="mob-nav" id="mob-nav">
+        <div class="container-x">
+          <nav class="mob-nav-inner" aria-label="Mobile">
+            <a href="index.html" class="nav-a" data-page="index">Home</a>
+            <a href="about.html" class="nav-a" data-page="about">Who We Are</a>
+            <a href="services.html" class="nav-a" data-page="services"
+              >Products</a
+            >
+            <a
+              href="service-center.html"
+              class="nav-a"
+              data-page="service-center"
+              >AFL Service Centre</a
+            >
+            <a href="training.html" class="nav-a" data-page="training"
+              >Fiber Optic Training</a
+            >
+            <a href="partners.html" class="nav-a" data-page="partners"
+              >Partners</a
+            >
+            <a href="contact.html" class="nav-a" data-page="contact">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main style="flex: 1">
+      <!-- ══════════════════════════════════════════════════════
+     HERO SLIDER
+     ══════════════════════════════════════════════════════ -->
+      <section class="hero-section" id="hero-slider">
+        <div class="container-x">
+          <div class="hero-grid">
+            <div class="hero-slide-content"><!-- rendered by JS --></div>
+            <div class="hero-img-wrap">
+              <img
+                src="assets/datacenter.jpg"
+                alt="Fiber optic network infrastructure"
+                width="1280"
+                height="960"
+                loading="eager"
+              />
+              <div class="hero-img-overlay-card">
+                <div class="hero-overlay-icon">
+                  <i
+                    data-lucide="badge-check"
+                    style="width: 1.25rem; height: 1.25rem"
+                  ></i>
+                </div>
+                <div class="hero-overlay-text">
+                  <span class="hero-overlay-title"
+                    >AFL Authorized Service Centre · MEA</span
+                  >
+                  <span class="hero-overlay-sub"
+                    >OEM-Approved Repair &amp; Calibration</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="hero-controls">
+              <div class="hero-dots">
+                <button class="hero-dot active" aria-label="Slide 1"></button>
+                <button class="hero-dot" aria-label="Slide 2"></button>
+                <button class="hero-dot" aria-label="Slide 3"></button>
+              </div>
+              <div class="hero-nav-btns">
+                <button
+                  class="hero-nav-btn"
+                  id="hero-prev"
+                  aria-label="Previous slide"
+                >
+                  <i data-lucide="chevron-left"></i>
+                </button>
+                <button
+                  class="hero-nav-btn"
+                  id="hero-next"
+                  aria-label="Next slide"
+                >
+                  <i data-lucide="chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════
+     KEYWORD SEARCH — Quick Reference Lookup
+     ══════════════════════════════════════════════════════ -->
+      <section class="section-white search-section" id="keyword-search">
+        <div class="container-x">
+          <div class="search-inner">
+            <div class="search-label">
+              <h3 class="search-title">SEARCH</h3>
+              <p class="search-subtitle">QUICK REFERENCE LOOKUP</p>
+            </div>
+            <div class="search-field-col">
+              <div class="search-box" role="search">
+                <input
+                  type="search"
+                  id="site-search-input"
+                  class="search-input"
+                  placeholder="Search for item by keyword or product number"
+                  aria-label="Search products and services"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+                <button
+                  class="search-btn"
+                  id="site-search-btn"
+                  aria-label="Search"
+                >
+                  <i
+                    data-lucide="search"
+                    style="width: 1.125rem; height: 1.125rem"
+                  ></i>
+                </button>
+              </div>
+              <!-- Suggestions dropdown -->
+              <div
+                class="search-dropdown"
+                id="search-dropdown"
+                role="listbox"
+                aria-label="Search suggestions"
+                hidden
+              ></div>
+              <!-- No-results message -->
+              <div class="search-no-results" id="search-no-results" hidden>
+                <i data-lucide="search-x" style="width: 1rem; height: 1rem"></i>
+                No results found. Try a different keyword.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════
+     PARTNER LOGOS BAR
+     ══════════════════════════════════════════════════════ -->
+      <style>
+        @keyframes marquee-scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        #partner-marquee-track {
+          display: flex;
+          align-items: center;
+          width: max-content;
+          animation: marquee-scroll 28s linear infinite;
+        }
+        #partner-marquee-track:hover {
+          animation-play-state: paused;
+        }
+        .pm-item {
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0 2.5rem;
+        }
+        .pm-item img {
+          height: 2.5rem;
+          width: auto;
+          max-width: 9rem;
+          object-fit: contain;
+          display: block;
+          opacity: 0.85;
+          transition: opacity 0.2s;
+        }
+        .pm-item img:hover {
+          opacity: 1;
+        }
+        .pm-item.tall img {
+          height: 4rem;
+          max-width: 13rem;
+        }
+      </style>
+      <section class="section-white" style="padding-block: 2.25rem">
+        <div
+          style="
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--muted);
+          "
+        >
+          Trusted By The World's Leading Telecom Technology Innovators
+        </div>
+        <div
+          style="
+            width: 100%;
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(
+              to right,
+              transparent 0%,
+              #000 10%,
+              #000 90%,
+              transparent 100%
+            );
+            mask-image: linear-gradient(
+              to right,
+              transparent 0%,
+              #000 10%,
+              #000 90%,
+              transparent 100%
+            );
+          "
+        >
+          <div id="partner-marquee-track">
+            <div class="pm-item">
+              <img src="assets/partners/afl.png" alt="AFL" loading="eager" />
+            </div>
+            <div class="pm-item">
+              <img
+                src="assets/partners/fujikura.svg"
+                alt="Fujikura"
+                loading="eager"
+              />
+            </div>
+            <div class="pm-item">
+              <img
+                src="assets/partners/anritsu.png"
+                alt="Anritsu"
+                loading="eager"
+              />
+            </div>
+            <div class="pm-item tall">
+              <img
+                src="assets/partners/yokogawa.png"
+                alt="Yokogawa"
+                loading="eager"
+              />
+            </div>
+            <div class="pm-item">
+              <img
+                src="assets/partners/ficer.png"
+                alt="FICER"
+                loading="eager"
+              />
+            </div>
+            <div class="pm-item">
+              <img
+                src="assets/partners/genie.png"
+                alt="Genie Networks"
+                loading="eager"
+              />
+            </div>
+            <div class="pm-item tall">
+              <img
+                src="assets/partners/Nivtrix-removebg-preview.png"
+                alt="Nivtrix"
+                loading="eager"
+              />
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="pm-item" aria-hidden="true">
+              <img src="assets/partners/afl.png" alt="" loading="eager" />
+            </div>
+            <div class="pm-item" aria-hidden="true">
+              <img src="assets/partners/fujikura.svg" alt="" loading="eager" />
+            </div>
+            <div class="pm-item" aria-hidden="true">
+              <img src="assets/partners/anritsu.png" alt="" loading="eager" />
+            </div>
+            <div class="pm-item tall" aria-hidden="true">
+              <img src="assets/partners/yokogawa.png" alt="" loading="eager" />
+            </div>
+            <div class="pm-item" aria-hidden="true">
+              <img src="assets/partners/ficer.png" alt="" loading="eager" />
+            </div>
+            <div class="pm-item" aria-hidden="true">
+              <img src="assets/partners/genie.png" alt="" loading="eager" />
+            </div>
+            <div class="pm-item tall" aria-hidden="true">
+              <img
+                src="assets/partners/Nivtrix-removebg-preview.png"
+                alt=""
+                loading="eager"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════
+     FEATURED PARTNER SECTIONS — AFL, Fujikura, AFL Hyperscale
+     ══════════════════════════════════════════════════════ -->
+      <section class="section-white sec-pad-lg">
+        <div class="container-x">
+          <div
+            class="reveal reveal-up"
+            style="
+              max-width: 42rem;
+              margin-inline: auto;
+              text-align: center;
+              margin-bottom: 3rem;
+            "
+          >
+            <span class="eyebrow-accent">Our Principal Partners</span>
+            <h2
+              class="font-display"
+              style="
+                margin-top: 0.75rem;
+                font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+                font-weight: 700;
+              "
+            >
+              World-Class Technology.<br />Local Expertise.
+            </h2>
+            <p
+              style="
+                margin-top: 1rem;
+                color: rgba(0, 66, 130, 0.75);
+                text-align: center;
+              "
+            >
+              As The Exclusive Authorized Partner And Service Centre For The
+              Region's Most Trusted Fiber And Network Technology Brands.
+            </p>
+          </div>
+
+          <!-- AFL Feature Panel -->
+          <div
+            class="split-grid reveal reveal-up"
+            style="
+              margin-bottom: 4rem;
+              padding-bottom: 4rem;
+              border-bottom: 1px solid var(--border);
+            "
+          >
+            <div>
+              <img
+                src="assets/partners/afl.png"
+                alt="AFL"
+                style="
+                  height: 3rem;
+                  width: auto;
+                  object-fit: contain;
+                  margin-bottom: 1.5rem;
+                "
+                loading="lazy"
+              />
+              <span class="pill pill-white" style="margin-bottom: 1rem"
+                ><i
+                  data-lucide="badge-check"
+                  style="width: 0.875rem; height: 0.875rem"
+                ></i>
+                AFL Authorized Service Centre · MEA</span
+              >
+              <h3
+                class="font-display"
+                style="
+                  margin-top: 1rem;
+                  font-size: clamp(1.5rem, 3vw, 2rem);
+                  font-weight: 700;
+                "
+              >
+                AFL — Fiber Optic Test &amp; Connectivity
+              </h3>
+              <p style="margin-top: 1rem; color: rgba(0, 66, 130, 0.75)">
+                Calibration And Certification Of FUJIKURA AFL OTDRs
+                (FS300,FS200) Fusion Splicers, Optical Power
+                Meters(OPM,OLS,OLTS) And Test Instruments (MFLT,OSA
+                1G,10G,25G,100G,200G,400G,800G) RFTS
+              </p>
+              <ul class="bul-list" style="margin-top: 1.25rem">
+                <li class="bul-check">
+                  <i data-lucide="circle-check-big"></i
+                  ><span>OTDRs, Fusion Splicers, Power Meters</span>
+                </li>
+                <li class="bul-check">
+                  <i data-lucide="circle-check-big"></i
+                  ><span>Traceable Calibration &amp; OEM Repair</span>
+                </li>
+                <li class="bul-check">
+                  <i data-lucide="circle-check-big"></i
+                  ><span>Fiber Optic Connectivity &amp; Cable Solutions</span>
+                </li>
+                <li class="bul-check">
+                  <i data-lucide="circle-check-big"></i><span>Others</span>
+                </li>
+              </ul>
+              <div
+                style="
+                  margin-top: 1.75rem;
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 0.75rem;
+                  align-items: center;
+                "
+              >
+                <a href="service-center.html" class="btn btn-lg btn-primary"
+                  >AFL Service Centre
+                  <i
+                    data-lucide="arrow-right"
+                    style="width: 1rem; height: 1rem"
+                  ></i
+                ></a>
+                <a
+                  href="https://www.aflglobal.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-lg btn-outline"
+                  >Visit AFL Global</a
+                >
+              </div>
+            </div>
+            <img
+              src="assets/new afl.jpeg"
+              alt="AFL fiber optic test equipment"
+              class="split-img aspect-16-10 reveal reveal-right"
+              style="--d: 2"
+              loading="lazy"
+              width="1280"
+              height="960"
+            />
+          </div>
+
+          <!-- Fujikura Feature Panel -->
+          <div
+            class="split-grid reveal reveal-up"
+            style="
+              margin-bottom: 4rem;
+              padding-bottom: 4rem;
+              border-bottom: 1px solid var(--border);
+            "
+          >
+            <img
+              src="assets/new%20df.png"
+              alt="Fujikura fiber optic cables and fusion splicer devices"
+              class="split-img aspect-16-10 reveal reveal-left"
+              style="--d: 1"
+              loading="lazy"
+              width="1280"
+              height="960"
+            />
+            <div>
+              <img
+                src="assets/partners/fujikura.svg"
+                alt="Fujikura"
+                style="
+                  height: 3rem;
+                  width: auto;
+                  object-fit: contain;
+                  margin-bottom: 1.5rem;
+                "
+                loading="lazy"
+              />
+              <span class="pill pill-white" style="margin-bottom: 1rem"
+                >Premium Fiber Optic Cables</span
+              >
+              <h3
+                class="font-display"
+                style="
+                  margin-top: 1rem;
+                  font-size: clamp(1.5rem, 3vw, 2rem);
+                  font-weight: 700;
+                "
+              >
+                Fujikura — Fiber Cables &amp; Spider Web Ribbon
+              </h3>
+              <p style="margin-top: 1rem; color: rgba(0, 66, 130, 0.75)">
+                For Best Performance Use Fujikura 99S and 99R
+              </p>
+              <ul class="bul-list" style="margin-top: 1.25rem">
+                <li class="bul-check">
+                  <i data-lucide="circle-check-big"></i
+                  ><span>Single-Mode &amp; Multi-Mode Fiber Cables</span>
+                </li>
+                <li class="bul-check">
+                  <i data-lucide="circle-check-big"></i
+                  ><span>Spider Web Ribbon (SWR®) Technology</span>
+                </li>
+                <li class="bul-check">
+                  <i data-lucide="circle-check-big"></i
+                  ><span>FTTH, OSP &amp; Data Center Solutions</span>
+                </li>
+                <li class="bul-check">
+                  <i data-lucide="circle-check-big"></i><span>Others</span>
+                </li>
+              </ul>
+              <div
+                style="
+                  margin-top: 1.75rem;
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 0.75rem;
+                  align-items: center;
+                "
+              >
+                <a href="services.html" class="btn btn-lg btn-primary"
+                  >Fujikura Products
+                  <i
+                    data-lucide="arrow-right"
+                    style="width: 1rem; height: 1rem"
+                  ></i
+                ></a>
+                <a
+                  href="https://www.fujikura.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-lg btn-outline"
+                  >Visit Fujikura</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- AFL Hyperscale Feature Panel -->
+          <div class="split-grid reveal reveal-up">
+            <div>
+              <img
+                src="assets/partners/afl.png"
+                alt="AFL Hyperscale"
+                style="
+                  height: 3rem;
+                  width: auto;
+                  object-fit: contain;
+                  margin-bottom: 1.5rem;
+                "
+                loading="lazy"
+              />
+              <span class="pill pill-white" style="margin-bottom: 1rem"
+                >High-Density Data Centre Connectivity</span
+              >
+              <h3
+                class="font-display"
+                style="
+                  margin-top: 1rem;
+                  font-size: clamp(1.5rem, 3vw, 2rem);
+                  font-weight: 700;
+                "
+              >
+                AFL Hyperscale — High-Density Data Centre
+              </h3>
+              <p style="margin-top: 1rem; color: rgba(0, 66, 130, 0.75)">
+                Purpose-Built Connectivity Solutions For Hyperscale Data
+                Centres, Cloud Providers And AI Infrastructure. AFL Hyperscale
+                Delivers Ultra-High-Density Fiber Systems, Precision Patch
+                Cords, Splice &amp; Patch Panels And Ribbon Fiber Solutions
+                Engineered For The Data Center Era.
+              </p>
+              <ul class="bul-list" style="margin-top: 1.25rem">
+                <li class="bul-check">
+                  <i data-lucide="circle-check-big"></i
+                  ><span
+                    >High-Density Fiber Connectivity &amp; Patch Panels</span
+                  >
+                </li>
+                <li class="bul-check">
+                  <i data-lucide="circle-check-big"></i
+                  ><span>OM3/OM4 Patch Cords For Data Centre Airflow</span>
+                </li>
+                <li class="bul-check">
+                  <i data-lucide="circle-check-big"></i
+                  ><span>Ribbon Fiber &amp; Hyperscale-Grade Splicing</span>
+                </li>
+                <li class="bul-check">
+                  <i data-lucide="circle-check-big"></i><span>Others</span>
+                </li>
+              </ul>
+              <div
+                style="
+                  margin-top: 1.75rem;
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 0.75rem;
+                  align-items: center;
+                "
+              >
+                <a href="hyperscale.html" class="btn btn-lg btn-primary"
+                  >AFL Hyperscale Solutions
+                  <i
+                    data-lucide="arrow-right"
+                    style="width: 1rem; height: 1rem"
+                  ></i
+                ></a>
+                <a href="contact.html" class="btn btn-lg btn-outline"
+                  >Discuss Your Requirements</a
+                >
+              </div>
+            </div>
+            <img
+              src="assets/data center.jpg"
+              alt="AFL Hyperscale high-density data centre connectivity"
+              class="split-img aspect-16-10 reveal reveal-right"
+              style="--d: 2"
+              loading="lazy"
+              width="1600"
+              height="1200"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════
+     WHAT WE DO — CAPABILITY CARDS (8 cards, 4-col)
+     ══════════════════════════════════════════════════════ -->
+      <section class="section-sky sec-pad-lg" id="capabilities">
+        <div class="container-x">
+          <div
+            class="reveal reveal-up"
+            style="max-width: 42rem; margin-inline: auto; text-align: center"
+          >
+            <span class="eyebrow-accent">What We Do</span>
+            <h2
+              class="font-display"
+              style="
+                margin-top: 0.75rem;
+                font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+                font-weight: 700;
+              "
+            >
+              A Full Ecosystem For Modern<br />Network Infrastructure
+            </h2>
+            <p
+              style="
+                margin-top: 1rem;
+                color: rgb(255, 255, 255);
+                text-align: center;
+              "
+            >
+              From The Fiber In The Ground To The OSS Platforms Running On Top —
+              Lantern Delivers An Integrated Stack Tailored For Telecom
+              Operators, Enterprises And Citizen Networks.
+            </p>
+          </div>
+          <div class="cap-grid">
+            <a
+              href="services.html#fujikura-cables"
+              class="cap-card reveal reveal-up"
+              style="--d: 1"
+            >
+              <div class="icon-box icon-box-md">
+                <i data-lucide="cable"></i>
+              </div>
+              <h3
+                class="font-display"
+                style="font-size: 1.125rem; font-weight: 600"
+              >
+                Fiber Infrastructure
+              </h3>
+              <p>
+                Fujikura &amp; AFL Fiber Cables, Splicing, FTTx &amp; Outside
+                Plant Solutions.
+              </p>
+            </a>
+            <a
+              href="hyperscale.html"
+              class="cap-card reveal reveal-up"
+              style="--d: 2"
+            >
+              <div class="icon-box icon-box-md">
+                <i data-lucide="server"></i>
+              </div>
+              <h3
+                class="font-display"
+                style="font-size: 1.125rem; font-weight: 600"
+              >
+                AFL Hyperscale
+              </h3>
+              <p>
+                High-Density Data Centre Connectivity &amp; AFL Hyperscale
+                Solutions.
+              </p>
+            </a>
+            <a
+              href="training.html"
+              class="cap-card reveal reveal-up"
+              style="--d: 3"
+            >
+              <div class="icon-box icon-box-md">
+                <i data-lucide="graduation-cap"></i>
+              </div>
+              <h3
+                class="font-display"
+                style="font-size: 1.125rem; font-weight: 600"
+              >
+                Fiber Optic Training
+              </h3>
+              <p>ETA FOT-OSP &amp; Light Brigade Certified FTTx Programs.</p>
+            </a>
+            <a
+              href="service-center.html"
+              class="cap-card reveal reveal-up"
+              style="--d: 4"
+            >
+              <div class="icon-box icon-box-md">
+                <i data-lucide="wrench"></i>
+              </div>
+              <h3
+                class="font-display"
+                style="font-size: 1.125rem; font-weight: 600"
+              >
+                Service Centre
+              </h3>
+              <p>Only AFL Authorized Service Centre For The MEA Region.</p>
+            </a>
+            <a
+              href="services.html#anritsu"
+              class="cap-card reveal reveal-up"
+              style="--d: 5"
+            >
+              <div class="icon-box icon-box-md">
+                <i data-lucide="radio"></i>
+              </div>
+              <h3
+                class="font-display"
+                style="font-size: 1.125rem; font-weight: 600"
+              >
+                Telecom Testing
+              </h3>
+              <p>Anritsu Spectrum, Site Master And PIM Test Instruments.</p>
+            </a>
+            <a
+              href="services.html#genie"
+              class="cap-card reveal reveal-up"
+              style="--d: 6"
+            >
+              <div class="icon-box icon-box-md">
+                <i data-lucide="shield-check"></i>
+              </div>
+              <h3
+                class="font-display"
+                style="font-size: 1.125rem; font-weight: 600"
+              >
+                Network Intelligence
+              </h3>
+              <p>
+                Genie Networks DDoS, Traffic Intelligence &amp; BGP Monitoring.
+              </p>
+            </a>
+            <a
+              href="services.html#nivtrix"
+              class="cap-card reveal reveal-up"
+              style="--d: 7"
+            >
+              <div class="icon-box icon-box-md">
+                <i data-lucide="layers"></i>
+              </div>
+              <h3
+                class="font-display"
+                style="font-size: 1.125rem; font-weight: 600"
+              >
+                OSS/BSS &amp; AI Platforms
+              </h3>
+              <p>
+                Nivtrix Cloud-Native OSS/BSS, CPaaS, GIS &amp; AIOps Platforms.
+              </p>
+            </a>
+            <a
+              href="services.html#ficer"
+              class="cap-card reveal reveal-up"
+              style="--d: 8"
+            >
+              <div class="icon-box icon-box-md"><i data-lucide="cpu"></i></div>
+              <h3
+                class="font-display"
+                style="font-size: 1.125rem; font-weight: 600"
+              >
+                Transceivers &amp; DWDM
+              </h3>
+              <p>FICER Coherent DWDM Optics For Metro And Long-Haul.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════
+     AFL SERVICE CENTER HIGHLIGHT — split, text left, image+stats right
+     ══════════════════════════════════════════════════════ -->
+      <section class="section-white sec-pad-lg">
+        <div class="container-x split-grid">
+          <!-- Left: text -->
+          <div class="reveal reveal-left">
+            <span class="pill pill-white">
+              <i
+                data-lucide="badge-check"
+                style="width: 0.875rem; height: 0.875rem"
+              ></i>
+              Exclusive In MEA
+            </span>
+            <h2
+              class="font-display"
+              style="
+                margin-top: 1rem;
+                font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+                font-weight: 700;
+              "
+            >
+              The Middle East &amp; Africa's Only AFL Authorized Service, Repair
+              &amp; Calibration Centre.
+            </h2>
+            <p style="margin-top: 1rem; color: rgba(0, 66, 130, 0.75)">
+              Providing Manufacturer-Grade Repair, Calibration, And Complete
+              Certification Of OTDRs, Fusion Splicers, Optical Power Meters And
+              Test Instruments — All Performed By Our Highly Certified Technical
+              Team With Fully Traceable Precision.
+            </p>
+
+            <!-- Why choose us — 2×2 grid inline -->
+            <div class="why-grid" style="margin-top: 2rem">
+              <div class="why-card">
+                <i
+                  data-lucide="wrench"
+                  style="width: 1.5rem; height: 1.5rem; color: var(--primary)"
+                ></i>
+                <p class="title">OEM Repairs</p>
+                <p class="sub">Manufacturer-Grade Parts</p>
+              </div>
+              <div class="why-card">
+                <i
+                  data-lucide="gauge"
+                  style="width: 1.5rem; height: 1.5rem; color: var(--primary)"
+                ></i>
+                <p class="title">Traceable Calibration</p>
+                <p class="sub">NIST-Traceable Standards</p>
+              </div>
+              <div class="why-card">
+                <i
+                  data-lucide="badge-check"
+                  style="width: 1.5rem; height: 1.5rem; color: var(--primary)"
+                ></i>
+                <p class="title">AFL Certified</p>
+                <p class="sub">Authorized &amp; Approved</p>
+              </div>
+              <div class="why-card">
+                <i
+                  data-lucide="globe-2"
+                  style="width: 1.5rem; height: 1.5rem; color: var(--primary)"
+                ></i>
+                <p class="title">MEA Coverage</p>
+                <p class="sub">Regional On-Ground Team</p>
+              </div>
+            </div>
+
+            <div
+              style="
+                margin-top: 2rem;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+              "
+            >
+              <a href="service-center.html" class="btn btn-lg btn-primary"
+                >Book Service
+                <i
+                  data-lucide="arrow-right"
+                  style="width: 1rem; height: 1rem"
+                ></i
+              ></a>
+              <a href="contact.html" class="btn btn-lg btn-hero"
+                >Request Calibration</a
+              >
+            </div>
+          </div>
+
+          <!-- Right: image + stats -->
+          <div
+            class="reveal reveal-right"
+            style="display: flex; flex-direction: column; gap: 1rem"
+          >
+            <img
+              src="assets/FS300.png"
+              alt="AFL optical test equipment repair and calibration"
+              style="
+                aspect-ratio: 16/10;
+                width: 100%;
+                border-radius: 1rem;
+                object-fit: cover;
+              "
+              width="1280"
+              height="960"
+              loading="lazy"
+            />
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 1rem;
+              "
+            >
+              <div
+                class="stat-card"
+                style="
+                  padding: 0;
+                  overflow: hidden;
+                  border-radius: 1rem;
+                  grid-row: span 2;
+                "
+              >
+                <img
+                  src="assets/new c.png"
+                  alt="ETA FOT-OSP Certification"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                  "
+                  loading="lazy"
+                />
+              </div>
+              <div class="stat-card">
+                <p class="stat-v">10,000+</p>
+                <p class="stat-l">Devices Serviced</p>
+              </div>
+              <div class="stat-card">
+                <p class="stat-v">15+</p>
+                <p class="stat-l">Countries Served</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════
+     TRAINING PROGRAMS — image left, text right
+     ══════════════════════════════════════════════════════ -->
+      <section class="section-sky sec-pad-lg">
+        <div class="container-x split-grid">
+          <!-- Image col -->
+          <div class="reveal reveal-left" style="position: relative">
+            <img
+              src="assets/training-lab.jpg"
+              alt="Fiber optic hands-on training lab"
+              class="split-img aspect-16-10"
+              loading="lazy"
+              width="1280"
+              height="960"
+            />
+          </div>
+
+          <!-- Text col -->
+          <div class="reveal reveal-right">
+            <span class="eyebrow-accent">Training Programs</span>
+            <h2
+              class="font-display"
+              style="
+                margin-top: 0.75rem;
+                font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+                font-weight: 700;
+              "
+            >
+              Building The Next Generation Of Fiber Professionals.
+            </h2>
+            <p style="margin-top: 1rem; color: rgb(255, 255, 255)">
+              Globally Recognized FTTx Training And Certification Programs
+              Designed For Installers, Technicians, ISPs, Operators And
+              Infrastructure Teams. Four-Day Curriculum Combining Classroom
+              Theory With Industry-Grade Hands-On Fiber Labs.
+            </p>
+            <ul class="bul-list" style="margin-top: 1.5rem">
+              <li class="bul-check">
+                <i data-lucide="circle-check-big"></i
+                ><span
+                  >ETA Fiber Optics Technician (FOT-OSP) Certification</span
+                >
+              </li>
+              <li class="bul-check">
+                <i data-lucide="circle-check-big"></i
+                ><span>Light Brigade Certified Instructors</span>
+              </li>
+              <li class="bul-check">
+                <i data-lucide="circle-check-big"></i
+                ><span
+                  >Hands-On Splicing, Testing &amp; Troubleshooting Labs</span
+                >
+              </li>
+              <li class="bul-check">
+                <i data-lucide="circle-check-big"></i
+                ><span>Custom Corporate Programs For Telecom Teams</span>
+              </li>
+              <li class="bul-check">
+                <i data-lucide="circle-check-big"></i><span>Others</span>
+              </li>
+            </ul>
+            <div
+              style="
+                margin-top: 2rem;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+              "
+            >
+              <a href="training.html" class="btn btn-lg btn-default"
+                >View Training Programs
+                <i
+                  data-lucide="arrow-right"
+                  style="width: 1rem; height: 1rem"
+                ></i
+              ></a>
+              <a href="contact.html" class="btn btn-lg btn-hero">Enroll Now</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════
+     NIVTRIX — DIGITAL PLATFORMS (reference layout)
+     ══════════════════════════════════════════════════════ -->
+      <section class="section-white sec-pad-lg keep-left">
+        <div class="container-x">
+          <!-- Top: left text + right overlapping images -->
+          <div class="niv-hero-grid reveal reveal-up">
+            <!-- Left: badge + heading + desc -->
+            <div class="niv-hero-text">
+              <img
+                src="assets/partners/Nivtrix-removebg-preview.png"
+                alt="Nivtrix"
+                style="
+                  height: 4rem;
+                  width: auto;
+                  object-fit: contain;
+                  margin-bottom: 1.5rem;
+                "
+                loading="lazy"
+              />
+              <span class="pill pill-white">
+                <i
+                  data-lucide="layers"
+                  style="width: 0.875rem; height: 0.875rem"
+                ></i>
+                Strategic Technology Partnership
+              </span>
+              <h2
+                class="font-display"
+                style="
+                  margin-top: 1.25rem;
+                  font-size: clamp(1rem, 2vw, 1.8rem);
+                  font-weight: 800;
+                  line-height: 1.2;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                "
+              >
+                Expanding Beyond Infrastructure Into
+                <span style="color: var(--primary)">Digital Platforms.</span>
+              </h2>
+              <p
+                style="
+                  margin-top: 1.25rem;
+                  font-size: 1rem;
+                  color: rgba(0, 66, 130, 0.75);
+                  line-height: 1.7;
+                "
+              >
+                Through Our Partnership With <strong>Nivtrix</strong>, Lantern
+                Delivers Cloud-Native, API-Driven Platforms Across OSS/BSS,
+                CPaaS, GIS, Fintech And AI-Driven Operations — Enabling
+                Operators And Enterprises To Accelerate Their Digital
+                Transformation.
+              </p>
+            </div>
+
+            <!-- Right: single image -->
+            <div class="niv-hero-imgs">
+              <img
+                src="assets/nivtrix for.png"
+                alt="Digital infrastructure data center"
+                class="niv-img-main"
+                loading="lazy"
+                width="1280"
+                height="960"
+              />
+              <!-- decorative dot grid -->
+              <div class="niv-dot-grid" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <!-- Platform cards 3-col -->
+          <div class="niv-grid-v2">
+            <a
+              href="services.html#nivtrix"
+              class="niv-card-v2 reveal reveal-up"
+              style="--d: 1"
+            >
+              <div class="niv-card-icon"><i data-lucide="database"></i></div>
+              <div class="niv-card-body">
+                <p class="niv-card-name">BILLOS</p>
+                <p class="niv-card-desc">
+                  Converged Billing &amp; Revenue Management
+                </p>
+              </div>
+              <i data-lucide="arrow-right" class="niv-card-arrow"></i>
+            </a>
+            <a
+              href="services.html#nivtrix"
+              class="niv-card-v2 reveal reveal-up"
+              style="--d: 2"
+            >
+              <div class="niv-card-icon"><i data-lucide="radio"></i></div>
+              <div class="niv-card-body">
+                <p class="niv-card-name">COMMOS</p>
+                <p class="niv-card-desc">CPaaS, Messaging &amp; Omnichannel</p>
+              </div>
+              <i data-lucide="arrow-right" class="niv-card-arrow"></i>
+            </a>
+            <a
+              href="services.html#nivtrix"
+              class="niv-card-v2 reveal reveal-up"
+              style="--d: 3"
+            >
+              <div class="niv-card-icon"><i data-lucide="globe-2"></i></div>
+              <div class="niv-card-body">
+                <p class="niv-card-name">GISOS</p>
+                <p class="niv-card-desc">GIS &amp; Geospatial Infrastructure</p>
+              </div>
+              <i data-lucide="arrow-right" class="niv-card-arrow"></i>
+            </a>
+            <a
+              href="services.html#nivtrix"
+              class="niv-card-v2 reveal reveal-up"
+              style="--d: 4"
+            >
+              <div class="niv-card-icon"><i data-lucide="network"></i></div>
+              <div class="niv-card-body">
+                <p class="niv-card-name">NETOS</p>
+                <p class="niv-card-desc">
+                  OSS, Network Operations &amp; Automation
+                </p>
+              </div>
+              <i data-lucide="arrow-right" class="niv-card-arrow"></i>
+            </a>
+            <a
+              href="services.html#nivtrix"
+              class="niv-card-v2 reveal reveal-up"
+              style="--d: 5"
+            >
+              <div class="niv-card-icon"><i data-lucide="landmark"></i></div>
+              <div class="niv-card-body">
+                <p class="niv-card-name">FINOS</p>
+                <p class="niv-card-desc">
+                  Digital Payments, Wallets &amp; Fintech
+                </p>
+              </div>
+              <i data-lucide="arrow-right" class="niv-card-arrow"></i>
+            </a>
+            <a
+              href="services.html#nivtrix"
+              class="niv-card-v2 reveal reveal-up"
+              style="--d: 6"
+            >
+              <div class="niv-card-icon"><i data-lucide="cpu"></i></div>
+              <div class="niv-card-body">
+                <p class="niv-card-name">AIOPS OS</p>
+                <p class="niv-card-desc">
+                  AI-driven Monitoring &amp; Intelligence
+                </p>
+              </div>
+              <i data-lucide="arrow-right" class="niv-card-arrow"></i>
+            </a>
+          </div>
+
+          <div
+            class="text-center reveal reveal-up"
+            style="--d: 3; margin-top: 3rem"
+          >
+            <a href="services.html#nivtrix" class="btn btn-lg btn-primary"
+              >Explore Nivtrix Platforms
+              <i data-lucide="arrow-right" style="width: 1rem; height: 1rem"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════
+     INDUSTRIES SERVED — 2-row grid of cards
+     ══════════════════════════════════════════════════════ -->
+      <section class="section-sky sec-pad-lg">
+        <div class="container-x">
+          <div
+            class="reveal reveal-up"
+            style="max-width: 42rem; margin-inline: auto; text-align: center"
+          >
+            <span class="eyebrow-accent">Industries Served</span>
+            <h2
+              class="font-display"
+              style="
+                margin-top: 0.75rem;
+                font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+                font-weight: 700;
+              "
+            >
+              Powering Connectivity Across<br />Every Sector.
+            </h2>
+          </div>
+          <div class="ind-grid">
+            <div class="ind-card reveal reveal-up" style="--d: 1">
+              <div class="icon-box icon-box-sm">
+                <i data-lucide="network"></i>
+              </div>
+              <p>Telecom Operators</p>
+            </div>
+            <div class="ind-card reveal reveal-up" style="--d: 2">
+              <div class="icon-box icon-box-sm"><i data-lucide="wifi"></i></div>
+              <p>ISPs</p>
+            </div>
+            <div class="ind-card reveal reveal-up" style="--d: 3">
+              <div class="icon-box icon-box-sm">
+                <i data-lucide="database"></i>
+              </div>
+              <p>Data Centers</p>
+            </div>
+            <div class="ind-card reveal reveal-up" style="--d: 4">
+              <div class="icon-box icon-box-sm">
+                <i data-lucide="building-2"></i>
+              </div>
+              <p>Smart Cities</p>
+            </div>
+            <div class="ind-card reveal reveal-up" style="--d: 1">
+              <div class="icon-box icon-box-sm">
+                <i data-lucide="landmark"></i>
+              </div>
+              <p>Government</p>
+            </div>
+            <div class="ind-card reveal reveal-up" style="--d: 2">
+              <div class="icon-box icon-box-sm"><i data-lucide="cpu"></i></div>
+              <p>Enterprise Networks</p>
+            </div>
+            <div class="ind-card reveal reveal-up" style="--d: 3">
+              <div class="icon-box icon-box-sm">
+                <i data-lucide="factory"></i>
+              </div>
+              <p>Utilities</p>
+            </div>
+            <div class="ind-card reveal reveal-up" style="--d: 4">
+              <div class="icon-box icon-box-sm"><i data-lucide="zap"></i></div>
+              <p>Hyperscalers</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════
+     CUSTOMER ORBIT — "Powering leading networks across MEA"
+     ══════════════════════════════════════════════════════ -->
+      <section
+        class="section-white sec-pad-md"
+        style="
+          border-top: 1px solid var(--border);
+          border-bottom: 1px solid var(--border);
+        "
+      >
+        <div class="container-x">
+          <div
+            class="reveal reveal-up"
+            style="
+              margin-bottom: 3rem;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              gap: 0.75rem;
+              text-align: center;
+            "
+          >
+            <span class="pill pill-white">Trusted By</span>
+            <h2
+              class="font-display"
+              style="font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 700"
+            >
+              Powering Leading Networks Across MEA
+            </h2>
+          </div>
+          <div class="orbit-wrap" id="orbit-wrap">
+            <!-- Rings -->
+            <div class="orbit-ring orbit-ring-1"></div>
+            <div class="orbit-ring orbit-ring-2"></div>
+            <div class="orbit-ring orbit-ring-3"></div>
+            <!-- SVG spokes + tiles built by JS -->
+            <!-- Center badge -->
+            <div class="orbit-center">
+              <img
+                src="assets/logo-light.png"
+                alt="Lantern Network"
+                style="height: 3.5rem; width: auto; object-fit: contain"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════
+     WHY LANTERN — split, text left, 2×2 cards right
+     ══════════════════════════════════════════════════════ -->
+      <section class="section-sky sec-pad-md">
+        <div class="container-x split-grid">
+          <!-- Left text -->
+          <div class="reveal reveal-left">
+            <span class="eyebrow-accent">Why Lantern</span>
+            <h2
+              class="font-display"
+              style="
+                margin-top: 0.75rem;
+                font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+                font-weight: 700;
+              "
+            >
+              A Decade Of Telecom Expertise. One Trusted Regional Partner.
+            </h2>
+            <p style="margin-top: 1rem; color: rgb(255, 255, 255)">
+              We Bridge Premium Hardware With Intelligent Software — Optimising
+              Operations And Unlocking New Revenue Streams For Operators Across
+              The Middle East And Africa.
+            </p>
+            <ul class="bul-list" style="margin-top: 2rem">
+              <li class="bul-check">
+                <i data-lucide="circle-check-big"></i
+                ><span
+                  >Certified Experts Across Fiber, Wireless, Transport &amp;
+                  Software</span
+                >
+              </li>
+              <li class="bul-check">
+                <i data-lucide="circle-check-big"></i
+                ><span
+                  >Authorized Partner Of AFL, Fujikura, Yokogawa, FICER, Genie
+                  &amp; Nivtrix</span
+                >
+              </li>
+              <li class="bul-check">
+                <i data-lucide="circle-check-big"></i
+                ><span
+                  >Regional Presence With Rapid On-Ground Support Across
+                  MEA</span
+                >
+              </li>
+              <li class="bul-check">
+                <i data-lucide="circle-check-big"></i
+                ><span
+                  >End-To-End Capability: Design, Deployment, Integration &amp;
+                  Managed Services</span
+                >
+              </li>
+              <li class="bul-check">
+                <i data-lucide="circle-check-big"></i><span>Others</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right 3×2 why cards (added DUNS + AFL Service Centre) -->
+          <div
+            class="why-grid reveal reveal-right"
+            style="grid-template-columns: repeat(2, 1fr)"
+          >
+            <div class="why-card">
+              <i
+                data-lucide="award"
+                style="width: 1.75rem; height: 1.75rem; color: var(--primary)"
+              ></i>
+              <p class="title">ISO 9001:2015</p>
+              <p class="sub">Certified Quality</p>
+            </div>
+            <div class="why-card">
+              <i
+                data-lucide="shield-check"
+                style="width: 1.75rem; height: 1.75rem; color: var(--primary)"
+              ></i>
+              <p class="title">ICV Certified</p>
+              <p class="sub">In-Country Value</p>
+            </div>
+            <div class="why-card">
+              <i
+                data-lucide="badge-check"
+                style="width: 1.75rem; height: 1.75rem; color: var(--primary)"
+              ></i>
+              <p class="title">DUNS Certified</p>
+              <p class="sub">D&amp;B Verified Business</p>
+            </div>
+            <div class="why-card">
+              <i
+                data-lucide="globe-2"
+                style="width: 1.75rem; height: 1.75rem; color: var(--primary)"
+              ></i>
+              <p class="title">MEA Reach</p>
+              <p class="sub">Live In UAE &amp; Africa</p>
+            </div>
+            <div class="why-card">
+              <i
+                data-lucide="users"
+                style="width: 1.75rem; height: 1.75rem; color: var(--primary)"
+              ></i>
+              <p class="title">10+ Years</p>
+              <p class="sub">Industry Experience</p>
+            </div>
+            <div class="why-card">
+              <i
+                data-lucide="wrench"
+                style="width: 1.75rem; height: 1.75rem; color: var(--primary)"
+              ></i>
+              <p class="title">AFL Service Centre</p>
+              <p class="sub">Only Authorized MEA</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════
+     CTA BANNER — "Let's build smarter networks together."
+     ══════════════════════════════════════════════════════ -->
+      <section class="cta-dubai-section">
+        <div class="container-x">
+          <div class="cta-dubai-content reveal reveal-up">
+            <span class="eyebrow-accent">Headquartered In UAE</span>
+            <h2
+              class="font-display"
+              style="
+                margin-top: 0.75rem;
+                font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+                font-weight: 700;
+                color: var(--white);
+              "
+            >
+              Let's Build Smarter Networks<br />Together.
+            </h2>
+            <p style="margin-top: 1rem; color: rgba(255, 255, 255, 0.82)">
+              Our Engineers Are Ready To Scope, Design And Deploy Fiber,
+              Transport, OSS/BSS And AI-Driven Solutions For Your Business.
+            </p>
+            <div
+              style="
+                margin-top: 2rem;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+              "
+            >
+              <a href="contact.html" class="btn btn-lg btn-primary"
+                >Tell Us About Your Requirement
+                <i
+                  data-lucide="arrow-right"
+                  style="width: 1rem; height: 1rem"
+                ></i
+              ></a>
+              <a href="services.html" class="btn btn-lg btn-hero"
+                >View Solutions</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container-x">
+        <div class="ft-grid">
+          <!-- Col 1: Brand -->
+          <div class="ft-col ft-brand">
+            <div class="ft-top-row">
+              <img
+                src="assets/logo-light.png"
+                alt="Lantern Network"
+                class="ft-logo"
+              />
+            </div>
+            <p class="ft-desc">
+              UAE-Based ISO,ICV Certified &amp; DUNS Certified Software &amp;
+              Hardware Distributor. Authorized Partner Of AFL, Fujikura,
+              Yokogawa, FICER, Genie Networks And Nivtrix — Designing, Building
+              And Managing Smarter Networks Across The Middle East &amp; Africa.
+            </p>
+            <div class="ft-socials">
+              <a
+                href="https://www.facebook.com/LanternnetworkUAE"
+                class="ft-soc"
+                aria-label="Facebook"
+                ><i data-lucide="facebook"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/lanternfiber/"
+                class="ft-soc"
+                aria-label="Instagram"
+                ><i data-lucide="instagram"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/company/lantern-network-uae/?viewAsMember=true"
+                target="_blank"
+                rel="noopener"
+                class="ft-soc"
+                aria-label="LinkedIn"
+                ><i data-lucide="linkedin"></i
+              ></a>
+              <a
+                href="https://www.youtube.com/@LanternUAE"
+                class="ft-soc"
+                aria-label="YouTube"
+                ><i data-lucide="youtube"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Col 2: Explore -->
+          <div class="ft-col ft-explore">
+            <div class="ft-top-row">
+              <h4 class="ft-heading">Explore</h4>
+            </div>
+            <div class="ft-explore-inner">
+              <div class="ft-sub">
+                <p class="ft-sub-label">&mdash; Company &mdash;</p>
+                <ul class="ft-links">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="partners.html">Partners</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+              <div class="ft-divider"></div>
+              <div class="ft-sub">
+                <p class="ft-sub-label">
+                  &mdash; Solutions &amp; Services &mdash;
+                </p>
+                <ul class="ft-links">
+                  <li><a href="services.html">Products</a></li>
+                  <li><a href="service-center.html">AFL Service Centre</a></li>
+                  <li><a href="training.html">Fiber Optic Training</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Col 3: Contact -->
+          <div class="ft-col ft-contact">
+            <div class="ft-top-row">
+              <h4 class="ft-heading">Contact</h4>
+            </div>
+            <div class="ft-contact-rows">
+              <div class="ft-row">
+                <i data-lucide="map-pin"></i>
+                <a
+                  href="https://maps.google.com/?q=Al+Safia+Building,+Salahuddin+Road,+Deira,+Dubai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  M29-M Floor, NEW AL SAFIYA BUILDING, Salahuddin Road, Near Abu
+                  Hail Metro Station, Deira, Dubai — UAE
+                </a>
+              </div>
+              <div class="ft-row">
+                <i data-lucide="phone"></i>
+                <a href="tel:+971566317999">+971 56 631 7999</a>
+              </div>
+              <div class="ft-row">
+                <i data-lucide="mail"></i>
+                <div>
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: auto auto 1fr;
+                      gap: 0.25rem 0.5rem;
+                    "
+                  >
+                    <span>Product sales</span><span>:</span
+                    ><a href="mailto:marketing@lanternnetwork.net"
+                      >marketing@lanternnetwork.net</a
+                    >
+                    <span>Product service</span><span>:</span
+                    ><a href="mailto:support@lanternfiber.com"
+                      >Support@lanternfiber.com</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ft-bottom">
+        <div class="container-x">
+          <div class="ft-bottom-inner">
+            <p>
+              &copy; <span id="copy-year"></span> Lantern Network. All Rights
+              Reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>

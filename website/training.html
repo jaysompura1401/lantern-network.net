@@ -1,0 +1,2116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <title>Fiber Optic Training — Lantern Network</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://unpkg.com/lucide@0.383.0/dist/umd/lucide.min.js"></script>
+    <style>
+      /* ====================================================
+   CERTIFICATION SECTION — REDESIGNED TO MATCH REFERENCE
+   ==================================================== */
+
+      /* ---- Section heading divider dots ---- */
+      .cert-heading-divider {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1.25rem;
+      }
+      .cert-heading-divider .line {
+        width: 2.5rem;
+        height: 2px;
+        background: #e2e8f0;
+        border-radius: 1px;
+      }
+      .cert-heading-divider .dot {
+        width: 0.625rem;
+        height: 0.625rem;
+        background: var(--primary, #004282);
+        border-radius: 50%;
+      }
+
+      /* ---- Certificate cards grid ---- */
+      .cert-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr));
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+      }
+
+      /* ---- Individual card ---- */
+      .cert-card-v2 {
+        background: #fff;
+        border: 2px solid #e2e8f0;
+        border-radius: 1.125rem;
+        padding: 1.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        box-shadow: 0 4px 24px rgba(0, 66, 130, 0.06);
+        transition:
+          box-shadow 0.3s ease,
+          transform 0.3s ease,
+          border-color 0.3s ease,
+          background 0.3s ease;
+        position: relative;
+      }
+      .cert-card-v2:hover {
+        background: linear-gradient(
+          145deg,
+          #f0fbff 0%,
+          #e6f7fe 60%,
+          #f5fcff 100%
+        );
+        border-color: #00c0f3;
+        box-shadow:
+          0 10px 48px rgba(0, 192, 243, 0.22),
+          0 2px 12px rgba(0, 66, 130, 0.08);
+        transform: translateY(-3px);
+      }
+
+      /* ---- Issuer badge ---- */
+      .cert-issuer-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        padding: 0.3rem 0.875rem;
+        border-radius: 2rem;
+        width: fit-content;
+      }
+      .cert-issuer-badge.blue {
+        background: rgba(0, 66, 130, 0.08);
+        color: var(--primary, #004282);
+        border: 1px solid rgba(0, 66, 130, 0.18);
+      }
+      .cert-issuer-badge.teal {
+        background: rgba(20, 184, 166, 0.09);
+        color: #0d9488;
+        border: 1px solid rgba(20, 184, 166, 0.22);
+      }
+
+      /* ---- Card inner: left info + right cert image ---- */
+      .cert-card-body {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.25rem;
+      }
+      .cert-card-info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .cert-card-name {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #0a1628;
+        line-height: 1.3;
+        margin: 0 0 1rem;
+      }
+
+      /* ---- Meta rows (icon + text) ---- */
+      .cert-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 0.625rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .cert-meta li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        color: #475569;
+        line-height: 1.45;
+      }
+      .cert-meta li svg {
+        flex-shrink: 0;
+        margin-top: 0.1rem;
+        color: var(--primary, #004282);
+      }
+
+      /* ---- Certificate thumbnail (right side) ---- */
+      .cert-thumb {
+        width: 24rem;
+        flex-shrink: 0;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+        box-shadow:
+          6px 12px 36px rgba(0, 192, 243, 0.18),
+          0 2px 8px rgba(0, 0, 0, 0.1);
+        transform: rotate(1.5deg);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .cert-card-v2:hover .cert-thumb {
+        transform: rotate(0deg) scale(1.03);
+        box-shadow:
+          8px 16px 48px rgba(0, 192, 243, 0.32),
+          0 4px 12px rgba(0, 0, 0, 0.12);
+      }
+      .cert-thumb img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Ensure text stays readable on hover */
+      .cert-card-v2:hover .cert-card-name {
+        color: #0a1628;
+      }
+      .cert-card-v2:hover .cert-meta li {
+        color: #334155;
+      }
+      .cert-card-footer-v2 {
+        padding-top: 1.125rem;
+        border-top: 1px solid #f0f4f8;
+      }
+      .cert-view-btn-v2 {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--primary, #004282);
+        border: 1.5px solid rgba(0, 66, 130, 0.28);
+        padding: 0.5rem 1.25rem;
+        border-radius: 2rem;
+        text-decoration: none;
+        transition:
+          background 0.22s,
+          color 0.22s,
+          border-color 0.22s;
+      }
+      .cert-view-btn-v2:hover {
+        background: var(--primary, #004282);
+        color: #fff;
+        border-color: var(--primary, #004282);
+      }
+
+      /* ================================================
+   COURSE DOCUMENT SECTION — dark panel (reference)
+   ================================================ */
+      .pdf-dark-panel {
+        background: #0b1f3a;
+        border-radius: 1.25rem;
+        padding: 2.75rem 2.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1.55fr;
+        gap: 3rem;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+      /* Decorative glow */
+      .pdf-dark-panel::before {
+        content: "";
+        position: absolute;
+        top: -5rem;
+        right: -5rem;
+        width: 22rem;
+        height: 22rem;
+        background: radial-gradient(
+          circle,
+          rgba(59, 130, 246, 0.14) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .pdf-dark-panel::after {
+        content: "";
+        position: absolute;
+        bottom: -4rem;
+        left: -3rem;
+        width: 16rem;
+        height: 16rem;
+        background: radial-gradient(
+          circle,
+          rgba(99, 102, 241, 0.1) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      /* Left column */
+      .pdf-panel-left {
+        position: relative;
+        z-index: 1;
+      }
+
+      .pdf-panel-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: #60a5fa;
+        margin-bottom: 1rem;
+        background: rgba(96, 165, 250, 0.1);
+        padding: 0.3rem 0.75rem;
+        border-radius: 0.375rem;
+        border: 1px solid rgba(96, 165, 250, 0.2);
+      }
+      .pdf-panel-title {
+        font-size: 1.875rem;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.2;
+        margin: 0 0 0.375rem;
+      }
+      .pdf-panel-subtitle {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #60a5fa;
+        margin: 0 0 1rem;
+      }
+      .pdf-panel-desc {
+        font-size: 0.9375rem;
+        color: #94a3b8;
+        line-height: 1.75;
+        margin: 0 0 1.5rem;
+      }
+
+      /* Feature chips */
+      .pdf-feat-chips {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.625rem;
+        margin-bottom: 1.875rem;
+      }
+      .pdf-feat-chip {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.8125rem;
+        font-weight: 500;
+        color: #cbd5e1;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 0.5rem 0.875rem;
+        border-radius: 0.5rem;
+      }
+      .pdf-feat-chip svg {
+        color: #60a5fa;
+        flex-shrink: 0;
+      }
+
+      /* Open document button */
+      .pdf-open-doc-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9375rem;
+        font-weight: 600;
+        background: #2563eb;
+        color: #fff;
+        padding: 0.75rem 1.875rem;
+        border-radius: 0.625rem;
+        text-decoration: none;
+        transition:
+          background 0.22s,
+          transform 0.22s,
+          box-shadow 0.22s;
+        box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
+      }
+      .pdf-open-doc-btn:hover {
+        background: #1d4ed8;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(37, 99, 235, 0.45);
+      }
+
+      /* Right column — browser window */
+      .pdf-panel-right {
+        position: relative;
+        z-index: 1;
+      }
+
+      .pdf-browser-v2 {
+        border-radius: 0.875rem;
+        overflow: hidden;
+        box-shadow:
+          0 28px 80px rgba(0, 0, 0, 0.55),
+          0 0 0 1px rgba(255, 255, 255, 0.06);
+        background: #1e293b;
+      }
+      .pdf-browser-topbar {
+        background: #1e2d40;
+        padding: 0.625rem 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.875rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .pdf-browser-dots-v2 {
+        display: flex;
+        gap: 0.375rem;
+        flex-shrink: 0;
+      }
+      .pdf-browser-dots-v2 span {
+        width: 0.625rem;
+        height: 0.625rem;
+        border-radius: 50%;
+        display: block;
+      }
+      .pdf-browser-filename {
+        flex: 1;
+        font-size: 0.75rem;
+        color: #94a3b8;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .pdf-browser-actions {
+        display: flex;
+        gap: 0.375rem;
+      }
+      .pdf-browser-icon-btn {
+        color: #64748b;
+        display: flex;
+        align-items: center;
+        padding: 0.2rem 0.3rem;
+        border-radius: 0.25rem;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .pdf-browser-icon-btn:hover {
+        color: #94a3b8;
+      }
+
+      .pdf-browser-viewport {
+        height: 27rem;
+      }
+      .pdf-browser-viewport iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+        background: #fff;
+      }
+
+      /* Mobile fallback for PDF viewer */
+      .pdf-browser-mob-fallback {
+        display: none;
+      }
+
+      /* ---- Responsive ---- */
+      @media (max-width: 960px) {
+        .pdf-dark-panel {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          padding: 2rem 1.5rem;
+        }
+        .pdf-browser-viewport {
+          display: none;
+        }
+        .pdf-browser-mob-fallback {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 2rem 1rem;
+          gap: 0.75rem;
+        }
+        .pdf-feat-chips {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .cert-thumb {
+          width: 14rem;
+        }
+        .cert-card-v2 {
+          padding: 1.25rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .cert-card-body {
+          flex-direction: column;
+        }
+        .cert-thumb {
+          width: 100%;
+          max-width: 26rem;
+          transform: none;
+          align-self: center;
+        }
+        .pdf-panel-title {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body
+    data-page="training"
+    style="display: flex; flex-direction: column; min-height: 100vh"
+  >
+    <header class="site-header">
+      <div class="container-x">
+        <div class="nav-inner">
+          <a href="index.html" class="nav-logo">
+            <img
+              src="assets/logo-light.png"
+              alt="Lantern Network"
+              width="459"
+              height="108"
+            />
+          </a>
+          <nav class="nav-links" aria-label="Main">
+            <a href="index.html" class="nav-a" data-page="index">Home</a>
+            <a href="about.html" class="nav-a" data-page="about">Who We Are</a>
+            <a href="services.html" class="nav-a" data-page="services"
+              >Products</a
+            >
+            <a
+              href="service-center.html"
+              class="nav-a"
+              data-page="service-center"
+              >AFL Service Centre</a
+            >
+            <a href="training.html" class="nav-a" data-page="training"
+              >Fiber Optic Training</a
+            >
+            <a href="partners.html" class="nav-a" data-page="partners"
+              >Partners</a
+            >
+            <a href="contact.html" class="nav-a" data-page="contact">Contact</a>
+          </nav>
+          <button class="mob-tog" id="mob-tog" aria-label="Toggle menu">
+            <i data-lucide="menu" id="mob-icon"></i>
+          </button>
+        </div>
+      </div>
+      <div class="mob-nav" id="mob-nav">
+        <div class="container-x">
+          <nav class="mob-nav-inner" aria-label="Mobile">
+            <a href="index.html" class="nav-a" data-page="index">Home</a>
+            <a href="about.html" class="nav-a" data-page="about">Who We Are</a>
+            <a href="services.html" class="nav-a" data-page="services"
+              >Products</a
+            >
+            <a
+              href="service-center.html"
+              class="nav-a"
+              data-page="service-center"
+              >AFL Service Centre</a
+            >
+            <a href="training.html" class="nav-a" data-page="training"
+              >Fiber Optic Training</a
+            >
+            <a href="partners.html" class="nav-a" data-page="partners"
+              >Partners</a
+            >
+            <a href="contact.html" class="nav-a" data-page="contact">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main style="flex: 1">
+      <!-- HERO -->
+      <section class="section-sky page-hero sec-pad-xl">
+        <div class="container-x split-grid">
+          <div class="reveal reveal-left">
+            <span class="pill pill-white"
+              ><i
+                data-lucide="award"
+                style="width: 0.875rem; height: 0.875rem"
+              ></i>
+              ETA International &amp; Light Brigade Certified</span
+            >
+            <h1
+              style="
+                margin-top: 1.5rem;
+                text-align: justify;
+                text-align-last: left;
+              "
+            >
+              AFL Hyperscale Fiber Optic Training
+            </h1>
+            <p class="sub" style="text-align: justify; text-align-last: left">
+              Globally Recognised FTTx, OSP And Hyperscale Fiber-Optic
+              Certification Programs Delivered In Dubai — Combining Classroom
+              Theory With Intensive Hands-On Splicing, Testing And
+              Troubleshooting Labs. Earn The
+              <strong>ETA FOT-OSP</strong> Credential Plus The Light Brigade
+              Certificate Of Completion.
+            </p>
+            <div
+              style="
+                margin-top: 2rem;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+              "
+            >
+              <a href="contact.html" class="btn btn-lg btn-primary"
+                >Enroll &amp; Get Syllabus
+                <i
+                  data-lucide="arrow-right"
+                  style="width: 1rem; height: 1rem"
+                ></i
+              ></a>
+              <a href="contact.html" class="btn btn-lg btn-secondary"
+                >Request Corporate Program</a
+              >
+            </div>
+          </div>
+          <img
+            src="assets/6.webp"
+            alt="Fiber optic training lab"
+            class="split-img aspect-16-10 reveal reveal-right"
+            style="--d: 2"
+            width="1600"
+            height="1200"
+          />
+        </div>
+      </section>
+
+      <!-- OUR CERTIFICATION & COURSE MATERIAL -->
+      <section
+        class="section-white sec-pad-md"
+        id="certifications"
+        style="border-bottom: 1px solid var(--border)"
+      >
+        <div class="container-x">
+          <!-- Section heading -->
+          <div
+            class="reveal reveal-up"
+            style="text-align: center; margin-bottom: 3rem"
+          >
+            <span class="eyebrow-accent"
+              ><i
+                data-lucide="award"
+                style="width: 0.875rem; height: 0.875rem"
+              ></i>
+              Official Credentials</span
+            >
+            <h2
+              class="font-display"
+              style="
+                margin-top: 0.75rem;
+                font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+                font-weight: 700;
+              "
+            >
+              Our Certification &amp; Course Material
+            </h2>
+            <p
+              style="
+                margin-top: 0.75rem;
+                color: var(--muted);
+                max-width: 38rem;
+                margin-inline: auto;
+                text-align: center;
+              "
+            >
+              Internationally Recognised Certifications Earned Through Rigorous
+              Examination And Intensive Hands-On Lab Training In Fiber Optic
+              Technology.
+            </p>
+            <!-- Decorative dot-line divider matching reference -->
+            <div class="cert-heading-divider">
+              <span class="line"></span>
+              <span class="dot"></span>
+              <span class="line" style="width: 3.5rem"></span>
+            </div>
+          </div>
+
+          <!-- ── Two horizontal certificate cards ── -->
+          <div class="cert-cards-grid">
+            <!-- Card 1: ETA International -->
+            <div class="cert-card-v2 reveal reveal-up" style="--d: 1">
+              <span class="cert-issuer-badge blue">
+                <i
+                  data-lucide="award"
+                  style="width: 0.75rem; height: 0.75rem"
+                ></i>
+                ETA International
+              </span>
+
+              <div class="cert-card-body">
+                <div class="cert-card-info">
+                  <h3 class="cert-card-name">
+                    Fiber Optics Technician<br />Outside Plant
+                  </h3>
+                  <ul class="cert-meta">
+                    <li>
+                      <i
+                        data-lucide="user"
+                        style="width: 0.875rem; height: 0.875rem"
+                      ></i>
+                      <span>Sandeep A. Desai</span>
+                    </li>
+                    <li>
+                      <i
+                        data-lucide="credit-card"
+                        style="width: 0.875rem; height: 0.875rem"
+                      ></i>
+                      <span
+                        >FOSP &ndash; Fiber Optic Outside Plant Specialist</span
+                      >
+                    </li>
+                    <li>
+                      <i
+                        data-lucide="file-text"
+                        style="width: 0.875rem; height: 0.875rem"
+                      ></i>
+                      <span>Issued By ETA International</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="cert-thumb">
+                  <img
+                    src="assets/cert-eta-fosp.webp"
+                    alt="ETA International – Certified Fiber Optics Technician Outside Plant (FOSP)"
+                    loading="lazy"
+                    width="1280"
+                    height="989"
+                  />
+                </div>
+              </div>
+
+              <div class="cert-card-footer-v2">
+                <a
+                  href="assets/cert-eta-fosp.webp"
+                  target="_blank"
+                  rel="noopener"
+                  class="cert-view-btn-v2"
+                >
+                  View Certificate
+                  <i
+                    data-lucide="arrow-right"
+                    style="width: 0.875rem; height: 0.875rem"
+                  ></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Card 2: Light Brigade -->
+            <div class="cert-card-v2 reveal reveal-up" style="--d: 2">
+              <span class="cert-issuer-badge teal">
+                <i
+                  data-lucide="award"
+                  style="width: 0.75rem; height: 0.75rem"
+                ></i>
+                Light Brigade
+              </span>
+
+              <div class="cert-card-body">
+                <div class="cert-card-info">
+                  <h3 class="cert-card-name">
+                    FTTx For Installers &amp;<br />Technicians
+                  </h3>
+                  <ul class="cert-meta">
+                    <li>
+                      <i
+                        data-lucide="user"
+                        style="width: 0.875rem; height: 0.875rem"
+                      ></i>
+                      <span>Sandeep Ashok Desai</span>
+                    </li>
+                    <li>
+                      <i
+                        data-lucide="credit-card"
+                        style="width: 0.875rem; height: 0.875rem"
+                      ></i>
+                      <span>Training Certificate</span>
+                    </li>
+                    <li>
+                      <i
+                        data-lucide="file-text"
+                        style="width: 0.875rem; height: 0.875rem"
+                      ></i>
+                      <span>Issued By Light Brigade</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="cert-thumb">
+                  <img
+                    src="assets/cert-light-brigade.webp"
+                    alt="Light Brigade – Training the Trainer FTTx for Installers and Technicians"
+                    loading="lazy"
+                    width="1280"
+                    height="989"
+                  />
+                </div>
+              </div>
+
+              <div class="cert-card-footer-v2">
+                <a
+                  href="assets/cert-light-brigade.webp"
+                  target="_blank"
+                  rel="noopener"
+                  class="cert-view-btn-v2"
+                >
+                  View Certificate
+                  <i
+                    data-lucide="arrow-right"
+                    style="width: 0.875rem; height: 0.875rem"
+                  ></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- /cert-cards-grid -->
+
+          <!-- ── Dark Course Document Panel ── -->
+          <div class="pdf-dark-panel reveal reveal-up">
+            <!-- Left: text + chips + button -->
+            <div class="pdf-panel-left">
+              <p class="pdf-panel-label">
+                <i
+                  data-lucide="file-text"
+                  style="width: 0.75rem; height: 0.75rem"
+                ></i>
+                Course Document
+              </p>
+              <h3 class="pdf-panel-title">Detailed Course Outline</h3>
+              <p class="pdf-panel-subtitle">
+                FTTx For Installers &amp; Technicians
+              </p>
+              <p class="pdf-panel-desc">
+                Comprehensive 2-Page Outline Covering All Essential Topics,
+                Modules, And Learning Objectives Of The Training Program.
+              </p>
+              <div class="pdf-feat-chips">
+                <span class="pdf-feat-chip">
+                  <i
+                    data-lucide="file-text"
+                    style="width: 0.8rem; height: 0.8rem"
+                  ></i>
+                  2 Pages
+                </span>
+                <span class="pdf-feat-chip">
+                  <i
+                    data-lucide="layout-grid"
+                    style="width: 0.8rem; height: 0.8rem"
+                  ></i>
+                  Detailed Modules
+                </span>
+                <span class="pdf-feat-chip">
+                  <i
+                    data-lucide="wrench"
+                    style="width: 0.8rem; height: 0.8rem"
+                  ></i>
+                  Practical Topics
+                </span>
+                <span class="pdf-feat-chip">
+                  <i
+                    data-lucide="download"
+                    style="width: 0.8rem; height: 0.8rem"
+                  ></i>
+                  Downloadable PDF
+                </span>
+              </div>
+              <a
+                href="assets/course-outline-fttx.pdf"
+                target="_blank"
+                rel="noopener"
+                class="pdf-open-doc-btn"
+              >
+                Open Document
+                <i
+                  data-lucide="arrow-up-right"
+                  style="width: 0.875rem; height: 0.875rem"
+                ></i>
+              </a>
+            </div>
+
+            <!-- Right: macOS-style browser window with embedded PDF -->
+            <div class="pdf-panel-right">
+              <div class="pdf-browser-v2">
+                <!-- Browser top bar -->
+                <div class="pdf-browser-topbar">
+                  <div class="pdf-browser-dots-v2">
+                    <span style="background: #ff5f57"></span>
+                    <span style="background: #ffbd2e"></span>
+                    <span style="background: #28ca40"></span>
+                  </div>
+                  <span class="pdf-browser-filename"
+                    >FTTx-Course-Outline-Latest.pdf</span
+                  >
+                  <div class="pdf-browser-actions">
+                    <a
+                      href="assets/course-outline-fttx.pdf"
+                      download
+                      title="Download"
+                      class="pdf-browser-icon-btn"
+                    >
+                      <i
+                        data-lucide="download"
+                        style="width: 0.75rem; height: 0.75rem"
+                      ></i>
+                    </a>
+                    <a
+                      href="assets/course-outline-fttx.pdf"
+                      target="_blank"
+                      rel="noopener"
+                      title="Open in new tab"
+                      class="pdf-browser-icon-btn"
+                    >
+                      <i
+                        data-lucide="external-link"
+                        style="width: 0.75rem; height: 0.75rem"
+                      ></i>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- PDF viewport (hidden on mobile) -->
+                <div class="pdf-browser-viewport">
+                  <iframe
+                    src="assets/course-outline-fttx.pdf#toolbar=0&navpanes=0&scrollbar=1"
+                    title="FTTx for Installers &amp; Technicians – Detailed Course Outline"
+                    loading="lazy"
+                  ></iframe>
+                </div>
+
+                <!-- Mobile fallback -->
+                <div class="pdf-browser-mob-fallback">
+                  <i
+                    data-lucide="file-text"
+                    style="width: 2.25rem; height: 2.25rem; color: #60a5fa"
+                  ></i>
+                  <p style="color: #fff; font-weight: 600; font-size: 1rem">
+                    FTTx Course Outline
+                  </p>
+                  <p
+                    style="
+                      color: #94a3b8;
+                      font-size: 0.875rem;
+                      text-align: center;
+                    "
+                  >
+                    2-page Light Brigade curriculum · ETA FOT-OSP accredited
+                  </p>
+                  <div
+                    style="
+                      display: flex;
+                      gap: 0.75rem;
+                      flex-wrap: wrap;
+                      justify-content: center;
+                      margin-top: 0.5rem;
+                    "
+                  >
+                    <a
+                      href="assets/course-outline-fttx.pdf"
+                      target="_blank"
+                      rel="noopener"
+                      class="pdf-open-doc-btn"
+                    >
+                      <i
+                        data-lucide="eye"
+                        style="width: 0.875rem; height: 0.875rem"
+                      ></i>
+                      Open PDF
+                    </a>
+                    <a
+                      href="assets/course-outline-fttx.pdf"
+                      download="FTTx-Course-Outline-Lantern.pdf"
+                      style="
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        font-size: 0.875rem;
+                        font-weight: 600;
+                        color: #fff;
+                        border: 1.5px solid rgba(255, 255, 255, 0.25);
+                        padding: 0.65rem 1.25rem;
+                        border-radius: 0.625rem;
+                        text-decoration: none;
+                      "
+                    >
+                      <i
+                        data-lucide="download"
+                        style="width: 0.875rem; height: 0.875rem"
+                      ></i>
+                      Download
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- /pdf-browser-v2 -->
+            </div>
+            <!-- /pdf-panel-right -->
+          </div>
+          <!-- /pdf-dark-panel -->
+        </div>
+      </section>
+
+      <!-- COURSE HIGHLIGHTS -->
+      <section class="section-sky sec-pad-md">
+        <div class="container-x split-grid">
+          <div class="reveal reveal-left">
+            <span class="eyebrow-accent">Course Highlights</span>
+            <h2
+              class="font-display"
+              style="
+                margin-top: 0.75rem;
+                font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+                font-weight: 700;
+              "
+            >
+              4 Days · Classroom + Intensive Hands-On Labs
+            </h2>
+            <p style="margin-top: 1rem">
+              Developed As The "Next Level" Of Training, The Program Teaches
+              Advanced Knowledge And Skills To Students Who Already Have
+              Introductory Training Or Several Years Of Field Experience. The
+              Curriculum Is Delivered By Light Brigade Certified Trainers And
+              Aligned To The Workflows Used Across Hyperscale And FTTx
+              Deployments.
+            </p>
+            <ul class="bul-list" style="margin-top: 1.5rem">
+              <li class="bul-check">
+                <i data-lucide="check-circle-2"></i
+                ><span>1 Day Classroom Theory + 3 Days Hands-On Labs</span>
+              </li>
+              <li class="bul-check">
+                <i data-lucide="check-circle-2"></i
+                ><span
+                  >Outside Plant Skills — Emergency Restoration &amp; Fiber
+                  Characterization</span
+                >
+              </li>
+              <li class="bul-check">
+                <i data-lucide="check-circle-2"></i
+                ><span>Introductory FTTx And xWDM Systems</span>
+              </li>
+              <li class="bul-check">
+                <i data-lucide="check-circle-2"></i
+                ><span
+                  >Live Fusion Splicing, OTDR Analysis And Connector
+                  Inspection</span
+                >
+              </li>
+              <li class="bul-check">
+                <i data-lucide="check-circle-2"></i
+                ><span
+                  >Prerequisite: Basic Fiber Theory Or Fiber Optics 1-2-3
+                  Equivalent</span
+                >
+              </li>
+            </ul>
+            <div class="course-highlights-mini">
+              <div class="ch-card" style="text-align: center">
+                <i
+                  data-lucide="calendar"
+                  style="
+                    width: 1.25rem;
+                    height: 1.25rem;
+                    color: var(--primary);
+                    display: block;
+                    margin: 0 auto;
+                  "
+                ></i>
+                <p class="cv" style="text-align: center">4 Days</p>
+                <p class="cl" style="text-align: center">Duration</p>
+              </div>
+              <div class="ch-card" style="text-align: center">
+                <i
+                  data-lucide="users"
+                  style="
+                    width: 1.25rem;
+                    height: 1.25rem;
+                    color: var(--primary);
+                    display: block;
+                    margin: 0 auto;
+                  "
+                ></i>
+                <p class="cv" style="text-align: center">Small Class</p>
+                <p class="cl" style="text-align: center">Max 12 Trainees</p>
+              </div>
+              <div class="ch-card" style="text-align: center">
+                <i
+                  data-lucide="wrench"
+                  style="
+                    width: 1.25rem;
+                    height: 1.25rem;
+                    color: var(--primary);
+                    display: block;
+                    margin: 0 auto;
+                  "
+                ></i>
+                <p class="cv" style="text-align: center">70%</p>
+                <p class="cl" style="text-align: center">Hands-On Labs</p>
+              </div>
+            </div>
+          </div>
+          <img
+            src="assets/5.webp"
+            alt="AFL Hyperscale fiber optic training"
+            class="split-img aspect-5-4 reveal reveal-right"
+            style="--d: 2"
+            loading="lazy"
+            width="1600"
+            height="1200"
+          />
+        </div>
+      </section>
+
+      <!-- AUDIENCE -->
+      <section
+        class="section-white sec-pad-sm"
+        style="
+          border-top: 1px solid var(--border);
+          border-bottom: 1px solid var(--border);
+        "
+      >
+        <div class="container-x">
+          <div class="reveal reveal-up mx-auto max-w-2xl text-center">
+            <span class="eyebrow-accent">Who Should Attend</span>
+            <h2
+              class="font-display"
+              style="
+                margin-top: 0.75rem;
+                font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+                font-weight: 700;
+              "
+            >
+              Built For Working Fiber Professionals
+            </h2>
+          </div>
+          <div class="aud-grid">
+            <div class="aud-card reveal reveal-up" style="--d: 1">
+              <div class="icon-box icon-box-sm">
+                <i data-lucide="users"></i>
+              </div>
+              <p
+                class="font-display"
+                style="font-weight: 600; font-size: 0.875rem"
+              >
+                Fiber Installers &amp; Technicians
+              </p>
+            </div>
+            <div class="aud-card reveal reveal-up" style="--d: 2">
+              <div class="icon-box icon-box-sm"><i data-lucide="rss"></i></div>
+              <p
+                class="font-display"
+                style="font-weight: 600; font-size: 0.875rem"
+              >
+                Telecom Operators &amp; ISPs
+              </p>
+            </div>
+            <div class="aud-card reveal reveal-up" style="--d: 3">
+              <div class="icon-box icon-box-sm">
+                <i data-lucide="wrench"></i>
+              </div>
+              <p
+                class="font-display"
+                style="font-weight: 600; font-size: 0.875rem"
+              >
+                OSP &amp; Splicing Crews
+              </p>
+            </div>
+            <div class="aud-card reveal reveal-up" style="--d: 4">
+              <div class="icon-box icon-box-sm">
+                <i data-lucide="construction"></i>
+              </div>
+              <p
+                class="font-display"
+                style="font-weight: 600; font-size: 0.875rem"
+              >
+                Engineering Trainees
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COURSE OUTLINE -->
+      <section class="section-sky sec-pad-md">
+        <div class="container-x">
+          <div
+            class="reveal reveal-up"
+            style="
+              display: flex;
+              align-items: flex-end;
+              justify-content: space-between;
+              gap: 1.5rem;
+            "
+          >
+            <div>
+              <span class="eyebrow-accent">Detailed Course Outline</span>
+              <h2
+                class="font-display"
+                style="
+                  margin-top: 0.75rem;
+                  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+                  font-weight: 700;
+                "
+              >
+                Six Core Modules
+              </h2>
+            </div>
+            <i
+              data-lucide="book-open"
+              style="
+                width: 3rem;
+                height: 3rem;
+                color: var(--primary);
+                flex-shrink: 0;
+                display: none;
+              "
+              id="book-icon"
+            ></i>
+          </div>
+          <div class="mod-grid">
+            <div class="mod-card reveal reveal-up" style="--d: 1">
+              <i
+                data-lucide="wrench"
+                style="width: 1.25rem; height: 1.25rem; color: var(--primary)"
+              ></i>
+              <h3>Introduction</h3>
+              <ul class="mod-items">
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>Basic Fiber Optic Terminology</span>
+                </li>
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>FTTx Optical Fiber Transmission Systems</span>
+                </li>
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>Typical Transmission Rates</span>
+                </li>
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>Why Use Fiber Optics?</span>
+                </li>
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>Fiber Optic Standards</span>
+                </li>
+              </ul>
+            </div>
+            <div class="mod-card reveal reveal-up" style="--d: 2">
+              <i
+                data-lucide="wrench"
+                style="width: 1.25rem; height: 1.25rem; color: var(--primary)"
+              ></i>
+              <h3>FTTx PON Methodology</h3>
+              <ul class="mod-items">
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>Passive Optical Networks (PON)</span>
+                </li>
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>FTTH, FTTB, POLAN, FTTC</span>
+                </li>
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>Active Ethernet, TDM / TDMA</span>
+                </li>
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>B-PON, G-PON, 10G-PON, EPON</span>
+                </li>
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>RF Over Glass, WDM-PON</span>
+                </li>
+              </ul>
+            </div>
+            <div class="mod-card reveal reveal-up" style="--d: 3">
+              <i
+                data-lucide="wrench"
+                style="width: 1.25rem; height: 1.25rem; color: var(--primary)"
+              ></i>
+              <h3>Topologies</h3>
+              <ul class="mod-items">
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>Point-To-Point &amp; Star</span>
+                </li>
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>Reach Extender, Route Redundancy</span>
+                </li>
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>Ring, Mesh And Bus Topologies</span>
+                </li>
+              </ul>
+            </div>
+            <div class="mod-card reveal reveal-up" style="--d: 4">
+              <i
+                data-lucide="wrench"
+                style="width: 1.25rem; height: 1.25rem; color: var(--primary)"
+              ></i>
+              <h3>ODN &amp; OSP</h3>
+              <ul class="mod-items">
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>ODN Capabilities</span>
+                </li>
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>Outside Plant Cable Management</span>
+                </li>
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>Drop Terminators</span>
+                </li>
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>Cable &amp; Fiber Management</span>
+                </li>
+              </ul>
+            </div>
+            <div class="mod-card reveal reveal-up" style="--d: 5">
+              <i
+                data-lucide="wrench"
+                style="width: 1.25rem; height: 1.25rem; color: var(--primary)"
+              ></i>
+              <h3>Fiber Theory</h3>
+              <ul class="mod-items">
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>Attenuation, Fresnel Reflection, Refraction</span>
+                </li>
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>Numerical Aperture, Mode Field Diameter</span>
+                </li>
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>Intrinsic &amp; Extrinsic Losses</span>
+                </li>
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>Lightwave Transmission &amp; Dispersion</span>
+                </li>
+              </ul>
+            </div>
+            <div class="mod-card reveal reveal-up" style="--d: 6">
+              <i
+                data-lucide="wrench"
+                style="width: 1.25rem; height: 1.25rem; color: var(--primary)"
+              ></i>
+              <h3>Splicing, Test &amp; Measurement</h3>
+              <ul class="mod-items">
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>Fusion Splicing Best Practice</span>
+                </li>
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>OTDR Theory &amp; Trace Analysis</span>
+                </li>
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>Optical Power Meter &amp; Light Source</span>
+                </li>
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>Connector Inspection &amp; Cleaning</span>
+                </li>
+                <li class="mod-item">
+                  <span
+                    style="
+                      width: 0.375rem;
+                      height: 0.375rem;
+                      border-radius: 50%;
+                      background: var(--primary);
+                      flex-shrink: 0;
+                      margin-top: 0.5rem;
+                    "
+                  ></span
+                  ><span>Fiber Characterisation</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SUCCESSFUL TRAINING SESSIONS -->
+      <section
+        class="section-white sec-pad-md"
+        id="training-gallery"
+        style="border-top: 1px solid var(--border)"
+      >
+        <div class="container-x">
+          <div
+            class="reveal reveal-up"
+            style="text-align: center; margin-bottom: 2.5rem"
+          >
+            <span class="eyebrow-accent"
+              ><i
+                data-lucide="images"
+                style="width: 0.875rem; height: 0.875rem"
+              ></i>
+              Gallery</span
+            >
+            <h2
+              class="font-display"
+              style="
+                margin-top: 0.75rem;
+                font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+                font-weight: 700;
+              "
+            >
+              Successful Training Sessions
+            </h2>
+            <p
+              style="
+                margin-top: 0.75rem;
+                color: var(--muted);
+                max-width: 36rem;
+                margin-inline: auto;
+                text-align: center;
+              "
+            >
+              Real Hands-On Fiber Optic Training Delivered To Professionals
+              Across The Middle East &amp; Africa.
+            </p>
+          </div>
+
+          <!-- Gallery -->
+          <div class="ts-gallery reveal reveal-up" style="--d: 1">
+            <!-- 3-panel carousel: prev | current | next -->
+            <div class="ts-stage-wrap">
+              <button
+                class="ts-btn ts-btn-prev"
+                id="ts-prev"
+                aria-label="Previous"
+              >
+                <i
+                  data-lucide="chevron-left"
+                  style="width: 1.25rem; height: 1.25rem"
+                ></i>
+              </button>
+
+              <div class="ts-stage" id="ts-stage">
+                <!-- prev peek -->
+                <div class="ts-pane ts-pane-prev" id="ts-pane-prev">
+                  <img
+                    id="ts-img-prev"
+                    src="assets/successful training sessions/6.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                </div>
+                <!-- current (large) -->
+                <div class="ts-pane ts-pane-cur" id="ts-pane-cur">
+                  <img
+                    id="ts-img-cur"
+                    src="assets/successful training sessions/1.webp"
+                    alt="Training session 1"
+                    loading="lazy"
+                  />
+                  <div class="ts-counter" id="ts-counter">1 / 6</div>
+                </div>
+                <!-- next peek -->
+                <div class="ts-pane ts-pane-next" id="ts-pane-next">
+                  <img
+                    id="ts-img-next"
+                    src="assets/successful training sessions/2.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              <button class="ts-btn ts-btn-next" id="ts-next" aria-label="Next">
+                <i
+                  data-lucide="chevron-right"
+                  style="width: 1.25rem; height: 1.25rem"
+                ></i>
+              </button>
+            </div>
+
+            <!-- Thumbnail strip -->
+            <div class="ts-thumbs" id="ts-thumbs">
+              <img
+                src="assets/successful training sessions/1.webp"
+                alt="Training session 1"
+                class="ts-thumb active"
+                data-idx="0"
+                loading="lazy"
+              />
+              <img
+                src="assets/successful training sessions/2.webp"
+                alt="Training session 2"
+                class="ts-thumb"
+                data-idx="1"
+                loading="lazy"
+              />
+              <img
+                src="assets/successful training sessions/3.webp"
+                alt="Training session 3"
+                class="ts-thumb"
+                data-idx="2"
+                loading="lazy"
+              />
+              <img
+                src="assets/successful training sessions/4.webp"
+                alt="Training session 4"
+                class="ts-thumb"
+                data-idx="3"
+                loading="lazy"
+              />
+              <img
+                src="assets/successful training sessions/5.webp"
+                alt="Training session 5"
+                class="ts-thumb"
+                data-idx="4"
+                loading="lazy"
+              />
+              <img
+                src="assets/successful training sessions/6.webp"
+                alt="Training session 6"
+                class="ts-thumb"
+                data-idx="5"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <style>
+        /* ── Training Sessions Gallery ── */
+        .ts-gallery {
+          display: flex;
+          flex-direction: column;
+          gap: 0.875rem;
+        }
+
+        /* Stage wrapper with nav buttons */
+        .ts-stage-wrap {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+        }
+
+        /* 3-pane stage */
+        .ts-stage {
+          flex: 1;
+          display: grid;
+          grid-template-columns: 1fr 2.5fr 1fr;
+          gap: 0.75rem;
+          align-items: center;
+        }
+
+        /* Panes */
+        .ts-pane {
+          border-radius: 1rem;
+          overflow: hidden;
+          background: #f1f5f9;
+        }
+        .ts-pane img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          display: block;
+          background: #f1f5f9;
+        }
+        /* Prev / Next panes — shorter, dimmed */
+        .ts-pane-prev,
+        .ts-pane-next {
+          height: 16rem;
+          opacity: 0.45;
+          filter: blur(1px);
+          cursor: pointer;
+          transition:
+            opacity 0.25s,
+            filter 0.25s;
+        }
+        .ts-pane-prev:hover,
+        .ts-pane-next:hover {
+          opacity: 0.7;
+          filter: blur(0);
+        }
+
+        /* Current pane — full height */
+        .ts-pane-cur {
+          position: relative;
+          height: 28rem;
+          box-shadow: 0 8px 40px rgba(0, 66, 130, 0.15);
+        }
+        .ts-counter {
+          position: absolute;
+          bottom: 0.75rem;
+          right: 0.875rem;
+          background: rgba(0, 0, 0, 0.5);
+          color: #fff;
+          font-size: 0.75rem;
+          font-weight: 600;
+          padding: 0.2rem 0.6rem;
+          border-radius: 2rem;
+          letter-spacing: 0.05em;
+        }
+
+        /* Nav buttons */
+        .ts-btn {
+          flex-shrink: 0;
+          background: rgba(255, 255, 255, 0.92);
+          border: none;
+          border-radius: 50%;
+          width: 2.75rem;
+          height: 2.75rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+          transition:
+            background 0.2s,
+            transform 0.2s;
+          color: var(--primary, #004282);
+        }
+        .ts-btn:hover {
+          background: #fff;
+          transform: scale(1.08);
+        }
+
+        /* Thumbnail strip */
+        .ts-thumbs {
+          display: flex;
+          gap: 0.625rem;
+          overflow-x: auto;
+          padding-bottom: 0.25rem;
+          scrollbar-width: thin;
+          scrollbar-color: rgba(0, 66, 130, 0.3) transparent;
+        }
+        .ts-thumbs::-webkit-scrollbar {
+          height: 4px;
+        }
+        .ts-thumbs::-webkit-scrollbar-thumb {
+          background: rgba(0, 66, 130, 0.3);
+          border-radius: 2px;
+        }
+        .ts-thumb {
+          flex: 0 0 7.5rem;
+          height: 5rem;
+          object-fit: contain;
+          background: #f1f5f9;
+          border-radius: 0.625rem;
+          cursor: pointer;
+          opacity: 0.6;
+          border: 2.5px solid transparent;
+          transition:
+            opacity 0.22s,
+            border-color 0.22s,
+            transform 0.22s;
+        }
+        .ts-thumb:hover {
+          opacity: 0.85;
+          transform: translateY(-2px);
+        }
+        .ts-thumb.active {
+          opacity: 1;
+          border-color: #00c0f3;
+          transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+          .ts-pane-prev,
+          .ts-pane-next {
+            height: 10rem;
+          }
+          .ts-pane-cur {
+            height: 18rem;
+          }
+          .ts-stage {
+            gap: 0.375rem;
+          }
+          .ts-btn {
+            width: 2.25rem;
+            height: 2.25rem;
+          }
+          .ts-thumb {
+            flex: 0 0 5.5rem;
+            height: 3.75rem;
+          }
+        }
+        @media (max-width: 480px) {
+          .ts-stage {
+            grid-template-columns: 0.6fr 2fr 0.6fr;
+          }
+          .ts-pane-prev,
+          .ts-pane-next {
+            height: 8rem;
+          }
+          .ts-pane-cur {
+            height: 14rem;
+          }
+        }
+      </style>
+
+      <script>
+        (function () {
+          const srcs = [
+            "assets/successful training sessions/1.webp",
+            "assets/successful training sessions/2.webp",
+            "assets/successful training sessions/3.webp",
+            "assets/successful training sessions/4.webp",
+            "assets/successful training sessions/5.webp",
+            "assets/successful training sessions/6.webp",
+          ];
+          const total = srcs.length;
+          let cur = 0;
+
+          const imgPrev = document.getElementById("ts-img-prev");
+          const imgCur = document.getElementById("ts-img-cur");
+          const imgNext = document.getElementById("ts-img-next");
+          const counter = document.getElementById("ts-counter");
+          const thumbs = document.querySelectorAll(".ts-thumb");
+          const panePrev = document.getElementById("ts-pane-prev");
+          const paneNext = document.getElementById("ts-pane-next");
+
+          if (!imgCur) return;
+
+          function idx(n) {
+            return ((n % total) + total) % total;
+          }
+
+          function go(n) {
+            cur = idx(n);
+            imgPrev.src = srcs[idx(cur - 1)];
+            imgCur.src = srcs[cur];
+            imgNext.src = srcs[idx(cur + 1)];
+            imgCur.alt = "Training session " + (cur + 1);
+            counter.textContent = cur + 1 + " / " + total;
+            thumbs.forEach((t, i) => t.classList.toggle("active", i === cur));
+            thumbs[cur].scrollIntoView({
+              behavior: "smooth",
+              block: "nearest",
+              inline: "center",
+            });
+          }
+
+          document
+            .getElementById("ts-prev")
+            .addEventListener("click", () => go(cur - 1));
+          document
+            .getElementById("ts-next")
+            .addEventListener("click", () => go(cur + 1));
+          panePrev.addEventListener("click", () => go(cur - 1));
+          paneNext.addEventListener("click", () => go(cur + 1));
+          thumbs.forEach((t, i) => t.addEventListener("click", () => go(i)));
+        })();
+      </script>
+
+      <!-- CTA -->
+      <section class="section-sky sec-pad-md">
+        <div class="container-x">
+          <div
+            class="reveal reveal-up"
+            style="
+              border-radius: 1.25rem;
+              border: 1px solid rgba(0, 66, 130, 0.15);
+              background: var(--white);
+              padding: 2.5rem;
+              display: flex;
+              flex-wrap: wrap;
+              align-items: center;
+              justify-content: space-between;
+              gap: 2rem;
+            "
+          >
+            <div style="flex: 1; min-width: 16rem">
+              <i
+                data-lucide="graduation-cap"
+                style="width: 2rem; height: 2rem; color: var(--primary)"
+              ></i>
+              <h2
+                class="font-display"
+                style="
+                  margin-top: 0.875rem;
+                  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+                  font-weight: 700;
+                "
+              >
+                Ready to advance your fiber career?
+              </h2>
+              <p
+                style="
+                  margin-top: 0.5rem;
+                  font-size: 0.9375rem;
+                  color: rgba(0, 66, 130, 0.7);
+                "
+              >
+                Contact us for next available batch dates, group discounts and
+                to download the complete AFL Hyperscale Fiber Optic Training
+                syllabus.
+              </p>
+            </div>
+            <div style="flex-shrink: 0">
+              <a href="contact.html" class="btn btn-lg btn-primary"
+                >Talk to Training Team</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container-x">
+        <div class="ft-grid">
+          <div class="ft-col ft-brand">
+            <div class="ft-top-row">
+              <img
+                src="assets/logo-light.png"
+                alt="Lantern Network"
+                class="ft-logo"
+              />
+            </div>
+            <p class="ft-desc">
+              UAE-Based ISO,ICV Certified &amp; DUNS Certified Software &amp;
+              Hardware Distributor. Authorized Partner Of AFL, Fujikura,
+              Yokogawa, FICER, Genie Networks And Nivtrix &mdash; Designing,
+              Building And Managing Smarter Networks Across The Middle East
+              &amp; Africa.
+            </p>
+            <div class="ft-socials">
+              <a
+                href="https://www.facebook.com/LanternnetworkUAE"
+                class="ft-soc"
+                aria-label="Facebook"
+                ><i data-lucide="facebook"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/lanternfiber/"
+                class="ft-soc"
+                aria-label="Instagram"
+                ><i data-lucide="instagram"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/company/lantern-network-uae/?viewAsMember=true"
+                target="_blank"
+                rel="noopener"
+                class="ft-soc"
+                aria-label="LinkedIn"
+                ><i data-lucide="linkedin"></i
+              ></a>
+              <a
+                href="https://www.youtube.com/@LanternUAE"
+                class="ft-soc"
+                aria-label="YouTube"
+                ><i data-lucide="youtube"></i
+              ></a>
+            </div>
+          </div>
+          <div class="ft-col ft-explore">
+            <div class="ft-top-row"><h4 class="ft-heading">Explore</h4></div>
+            <div class="ft-explore-inner">
+              <div class="ft-sub">
+                <p class="ft-sub-label">&mdash; Company &mdash;</p>
+                <ul class="ft-links">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="partners.html">Partners</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+              <div class="ft-divider"></div>
+              <div class="ft-sub">
+                <p class="ft-sub-label">
+                  &mdash; Solutions &amp; Services &mdash;
+                </p>
+                <ul class="ft-links">
+                  <li><a href="services.html">Products</a></li>
+                  <li><a href="service-center.html">AFL Service Centre</a></li>
+                  <li><a href="training.html">Fiber Optic Training</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="ft-col ft-contact">
+            <div class="ft-top-row"><h4 class="ft-heading">Contact</h4></div>
+            <div class="ft-contact-rows">
+              <div class="ft-row">
+                <i data-lucide="map-pin"></i
+                ><a
+                  href="https://maps.google.com/?q=Al+Safia+Building,+Salahuddin+Road,+Deira,+Dubai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >M29-M Floor, NEW AL SAFIYA BUILDING, Salahuddin Road, Near
+                  Abu Hail Metro Station, Deira, Dubai &mdash; UAE</a
+                >
+              </div>
+              <div class="ft-row">
+                <i data-lucide="phone"></i
+                ><a href="tel:+971566317999">+971 56 631 7999</a>
+              </div>
+              <div class="ft-row">
+                <i data-lucide="mail"></i>
+                <div>
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: auto auto 1fr;
+                      gap: 0.25rem 0.5rem;
+                    "
+                  >
+                    <span>Product sales</span><span>:</span
+                    ><a href="mailto:marketing@lanternnetwork.net"
+                      >marketing@lanternnetwork.net</a
+                    >
+                    <span>Product service</span><span>:</span
+                    ><a href="mailto:support@lanternfiber.com"
+                      >Support@lanternfiber.com</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ft-bottom">
+        <div class="container-x">
+          <div class="ft-bottom-inner">
+            <p>
+              &copy; <span id="copy-year"></span> Lantern Network. All Rights
+              Reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>
